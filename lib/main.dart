@@ -64,9 +64,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Coffee Masters!',
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 3, 20, 56)),
-        useMaterial3: true,
+        primarySwatch: Colors.brown,
       ),
       home: const MyHomePage(),
     );
@@ -85,10 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: const Color.fromARGB(255, 73, 45, 35),
+        centerTitle: true,
         title: Image.asset("images/logo.png"),
       ),
-      body: Greet(),
+      body: const Greet(),
     );
   }
 }
