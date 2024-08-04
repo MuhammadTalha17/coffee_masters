@@ -1,4 +1,6 @@
-import 'package:coffee_masters/offerspage.dart';
+import 'package:coffee_masters/pages/menupage.dart';
+import 'package:coffee_masters/pages/offerspage.dart';
+import 'package:coffee_masters/pages/orderpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -96,13 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (selectedIndex) {
       case 0:
-        currentWidgetPage = const Text("Menu Page");
+        currentWidgetPage = const MenuPage();
         break;
       case 1:
         currentWidgetPage = const OffersPage();
         break;
       case 2:
-        currentWidgetPage = const Text("Orders Page");
+        currentWidgetPage = const OrderPage();
         break;
     }
 
@@ -115,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: selectedIndex,
         onTap: (newIndex) {
           setState(() {
-            selectedIndex = newIndex;
+            selectedIndex = newIndex; //Setting the State Variable
           });
         },
         backgroundColor: Theme.of(context).primaryColor,
