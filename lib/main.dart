@@ -65,7 +65,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Coffee Masters!',
       theme: ThemeData(
+        primaryColor: Colors.brown,
         primarySwatch: Colors.brown,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromARGB(255, 73, 45, 35),
+        ),
         textTheme: const TextTheme(
           headlineMedium: TextStyle(fontSize: 33, color: Colors.brown),
           headlineSmall: TextStyle(fontSize: 18, color: Colors.brown),
@@ -84,15 +88,48 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    Widget currentWidgetPage = const Text("!!!");
+
+    switch (selectedIndex) {
+      case 0:
+        currentWidgetPage = const Text("Menu Page");
+        break;
+      case 1:
+        currentWidgetPage = const OffersPage();
+        break;
+      case 2:
+        currentWidgetPage = const Text("Orders Page");
+        break;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 73, 45, 35),
         centerTitle: true,
         title: Image.asset("images/logo.png"),
       ),
-      body: const OffersPage(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: (newIndex) {
+          setState(() {
+            selectedIndex = newIndex;
+          });
+        },
+        backgroundColor: Theme.of(context).primaryColor,
+        selectedItemColor: Colors.yellow.shade400,
+        unselectedItemColor: Colors.brown.shade50,
+        items: const [
+          BottomNavigationBarItem(label: "Menu", icon: Icon(Icons.coffee)),
+          BottomNavigationBarItem(
+              label: "Offers", icon: Icon(Icons.local_offer)),
+          BottomNavigationBarItem(
+              label: "Order", icon: Icon(Icons.shopping_cart_checkout_outlined))
+        ],
+      ),
+      body: currentWidgetPage,
     );
   }
 }

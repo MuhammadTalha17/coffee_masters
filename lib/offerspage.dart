@@ -1,3 +1,4 @@
+import 'package:coffee_masters/paddedtextcontainer.dart';
 import 'package:flutter/material.dart';
 
 class OffersPage extends StatelessWidget {
@@ -5,9 +6,29 @@ class OffersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Offer(
-      title: "Great Offer!",
-      description: "Refills Free!",
+    return ListView(
+      children: const [
+        Offer(
+          title: "Great Offer!",
+          description: "Refills Free!",
+        ),
+        Offer(
+          title: "Great Offer!",
+          description: "Refills Free!",
+        ),
+        Offer(
+          title: "Great Offer!",
+          description: "Refills Free!",
+        ),
+        Offer(
+          title: "Great Offer!",
+          description: "Refills Free!",
+        ),
+        Offer(
+          title: "Great Offer!",
+          description: "Refills Free!",
+        ),
+      ],
     );
   }
 }
@@ -25,11 +46,11 @@ class Offer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 185,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
-          color: const Color.fromARGB(255, 235, 209, 94),
+          color: Colors.amber.shade100,
           elevation: 7,
           child: Container(
             decoration: const BoxDecoration(
@@ -41,19 +62,23 @@ class Offer extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                      child: Text(
-                    title,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  )),
-                ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: PaddedTextContainer(
+                        text: title,
+                        color: Colors.amber.shade50,
+                        padding: const EdgeInsets.all(8.0),
+                        textStyle: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    )),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
-                      child: Text(
-                    description,
-                    style: Theme.of(context).textTheme.headlineSmall,
+                      child: PaddedTextContainer(
+                    text: description,
+                    color: Colors.amber.shade50,
+                    padding: const EdgeInsets.all(8.0),
+                    textStyle: Theme.of(context).textTheme.headlineSmall,
                   )),
                 ),
               ],
