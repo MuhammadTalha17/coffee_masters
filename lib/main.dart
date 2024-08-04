@@ -1,3 +1,4 @@
+import 'package:coffee_masters/offerspage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -65,6 +66,10 @@ class MyApp extends StatelessWidget {
       title: 'Coffee Masters!',
       theme: ThemeData(
         primarySwatch: Colors.brown,
+        textTheme: const TextTheme(
+          headlineMedium: TextStyle(fontSize: 33, color: Colors.brown),
+          headlineSmall: TextStyle(fontSize: 18, color: Colors.brown),
+        ),
       ),
       home: const MyHomePage(),
     );
@@ -87,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Image.asset("images/logo.png"),
       ),
-      body: const Greet(),
+      body: const OffersPage(),
     );
   }
 }
