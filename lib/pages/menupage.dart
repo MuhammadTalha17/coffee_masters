@@ -1,8 +1,10 @@
+import 'package:coffee_masters/datamanager.dart';
 import 'package:coffee_masters/datamodel.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatelessWidget {
-  const MenuPage({super.key});
+  final DataManager dataManager;
+  const MenuPage({super.key, required this.dataManager});
 
   @override
   Widget build(BuildContext context) {
