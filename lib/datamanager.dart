@@ -25,7 +25,7 @@ class DataManager {
     if (_menu == null) {
       await fetchmenu();
     }
-    return _menu;
+    return _menu!;
   }
 
   cartAdd(Product p) {
