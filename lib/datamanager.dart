@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:coffee_masters/datamodel.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class DataManager {
+class DataManager with ChangeNotifier {
   List<Category>? _menu;
   List<ItemInCart> cart = [];
 
@@ -35,9 +35,9 @@ class DataManager {
         item.quantity++;
         found = true;
       }
-      if (!found) {
-        cart.add(ItemInCart(product: p, quantity: 1));
-      }
+    }
+    if (!found) {
+      cart.add(ItemInCart(product: p, quantity: 1));
     }
   }
 
@@ -52,7 +52,7 @@ class DataManager {
   double cartTotal() {
     var total = 0.0;
     for (var item in cart) {
-      total += item.product.price * item.quantity;
+      total += item.quantity * item.product.price;
     }
     return total;
   }
